@@ -8,8 +8,6 @@ using System.Threading.Tasks;
 
 namespace UdemyEFCore.DatabaseFirst.DAL
 {
-    
-
     public class DbContextInitializer
     {
         public static IConfigurationRoot Configuration;
@@ -21,9 +19,8 @@ namespace UdemyEFCore.DatabaseFirst.DAL
 
             Configuration = builder.Build();
 
-            OptionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
-            OptionsBuilder.UseSqlServer(Configuration.GetConnectionString("SqlCon"));
+            //OptionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
+            //OptionsBuilder.UseSqlServer(Configuration.GetConnectionString("SqlCon"));
         }
-
     }
 }
