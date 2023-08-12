@@ -7,28 +7,22 @@ Initializer.Build();
 
 using (var _context = new AppDbContext())
 {
-    //var newProduct = new Product { Name = "Kalem 200", Price = 200, Stock = 100, Barcode = 333 };
 
-     var product = await _context.Products.FirstAsync();
+    _context.Products.Add(new() { Name = "Kalem8", Price = 10, Stock = 200, Barcode = 12345 });
+    _context.Products.Add(new() { Name = "Kalem8", Price = 10, Stock = 200, Barcode = 12345 });
+    _context.Products.Add(new() { Name = "Kalem8", Price = 10, Stock = 200, Barcode = 12345 });
+    _context.Products.Add(new() { Name = "Kalem8", Price = 10, Stock = 200, Barcode = 12345 });
 
-    Console.WriteLine($"ilk state:{ _context.Entry(product).State}");
 
-    _context.Remove(product);
 
-    //await _context.AddAsync(newProduct);
+    _context.SaveChanges();
 
-    Console.WriteLine($"son state:{_context.Entry(product).State}");
-    
-
-    await _context.SaveChangesAsync();
-
-    Console.WriteLine($"save changes state:{_context.Entry(product).State}");
-
-    //var products = await _context.Products.ToListAsync();
+    var products = await _context.Products.ToListAsync();
 
     //products.ForEach(p =>
     //{
-    //    var state = _context.Entry(p).State;
-    //    Console.WriteLine($"{p.Id} :{p.Name} :{p.Stock} state:{state}");
+    //    Console.WriteLine($"{p.Id} :{p.Name} :{p.Stock}");
     //});
-}
+
+    
+   }
